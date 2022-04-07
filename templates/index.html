@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bike Buyers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="C:/Users/amit/PycharmProjects/flaskml/static/styles/test.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/test.css') }}" />
+
+
+
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>Bike</b> Buyers</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="https://colab.research.google.com/drive/14dW1j5_mn2yI56qhOD3UdT8kFEikWs15?usp=sharing" class="w3-bar-item w3-button">Code</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="static/Images/bike17.png" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Bike</b></span> <span class="w3-hide-small w3-text-light-grey">Buyers</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-weight:bold;color:#FD3E01; font-size:35px">Let's Check who's going to buy bike</h3>
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-weight:bold;color:#666; font-size:24px">Fill the following details and click on Go</h3>
+
+      <br><br>
+<div class="make_center">
+<div class="project form">
+
+  <form action="{{url_for('predict')}}"method="post">
+
+        <!--<input type="text" name="marital_status" placeholder="marital_status" required="required"/><br>-->
+        <label class="radio">
+    Marital Status:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="radio" value="0" name="gender" />&nbsp Married
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" value="1" name="gender" />&nbspUnmaried
+          </label>
+        <br><br>
+
+        Income:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="text" name="Income" placeholder="Income" required="required"/><br><br>
+        Children:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="text" name="Children" placeholder="Children" required="required"/><br><br>
+
+
+    Education:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <select name="Education">
+      <option value="0">Bachelors</option>
+      <option value="1">Graduate Degree</option>
+      <option value="2">High School</option>
+      <option value="3">Partial High School</option>
+      <option value="4">Partial college</option>
+    </select><br><br>
+
+        Region:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <select name="Region">
+      <option value="0">Europe</option>
+      <option value="1">North America</option>
+      <option value="2">Pacific</option>
+    </select><br><br>
+
+          No. of Cars:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="text" name="Cars" placeholder="Cars" required="required"/><br><br>
+        Age:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="text" name="age" placeholder="Age" required="required"/><br><br>
+        <button style="" type="submit" class="btn">Go</button>
+    </form>
+
+    <br><br><br><br>
+
+</div>
+</div>
+  </div>
+
+    <div style="color:red;text-align-last: center; font-size:30px">
+        <br>
+    {{ pred }}
+    </div>
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-weight:bold;color:#FD3E01">About</h3>
+    <p style="font-size:18px; color:#666">
+        We've done data analysis on <a href="https://www.kaggle.com/datasets/heeraldedhia/bike-buyers" style="color:#666">bike Buyers 1000</a> data set gained insights from data and build ML model to target right bike
+        buyer. <br> we've used Google colab for model building and data visualization, major python modules used are numpy, pandas, seaborn, matplotlib, sklearn etc. <br> For website we've used flask, python for backend and
+        html,css for frontend.
+    </p>
+  </div>
+
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="static/Images/am.png" alt="Amit" style="width:100%">
+      <h3>Amit Kushwaha</h3>
+      <p><b>FMIT2122011</b></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="static/Images/sm.png" alt="Sanket" style="width:100%">
+      <h3>Sanket Marathe</h3>
+
+      <p><b>FMIT2122010</b></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="static/Images/ap.jpg" alt="Apeksha" style="width:100%">
+      <h3>Apeksha Khot</h3>
+      <p><b>FfMIT2122009</b></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="static/Images/an.jpg" alt="Dan" style="width:100%">
+      <h3>Anil Mendha</h3>
+      <p><b>FMIT2122012</b></p>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16" style="border-radius:3px">
+  <p>Powered by Team3</p>
+</footer>
+
+</body>
+</html>
